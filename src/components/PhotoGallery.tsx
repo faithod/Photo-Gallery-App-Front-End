@@ -10,6 +10,7 @@ export default function PhotoGallery(): JSX.Element {
       simplerGalleryData.push({
         id: element.id,
         alt: element.alt_description ? element.alt_description : "", //in the fetched data, sometimes the value is null
+        description: element.description ? element.description : "", //in the fetched data, sometimes the value is null
         url: element.urls.full,
       });
     }
@@ -17,7 +18,7 @@ export default function PhotoGallery(): JSX.Element {
   }
   useEffect(() => {
     const apiAccessKey = process.env.REACT_APP_API_ACCESS_KEY;
-    const baseURL = `https://api.unsplash.com/photos?client_id=${apiAccessKey}`;
+    const baseURL = `https://api.unsplash.com/collections/9378914/photos?per_page=1000&client_id=${apiAccessKey}`;
     axios.get(baseURL).then((res) => {
       console.log(res.data);
       const simplerData = simplifyingFetchedData(res.data);
@@ -29,9 +30,11 @@ export default function PhotoGallery(): JSX.Element {
   console.log(gallery);
   return (
     <>
-      {gallery.map((el: IGallery) => (
-        <img key={el.id} alt={el.alt} src={el.url} width={600}></img>
-      ))}
+      {gallery
+        .map((el: IGallery) => (
+          <img key={el.id} alt={el.alt} src={el.url} width={600}></img>
+        ))
+        .slice(-10)}
     </>
   );
 }
