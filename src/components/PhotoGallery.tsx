@@ -6,7 +6,7 @@ export default function PhotoGallery(): JSX.Element {
   const [search, setSearch] = useState("");
   const [gallery, setGallery] = useState<IGallery[]>([]);
 
-  useEffect(() => fetchPhotos(setGallery, search), []);
+  useEffect(() => fetchPhotos(setGallery, search), [search]);
 
   const filterGallery = (photos: IGallery[], search: string) => {
     const output = [];

@@ -3,7 +3,7 @@ import Home from "./components/routes/Home";
 import UsersProfile from "./components/routes/UsersProfile";
 import CssBaseline from "@mui/material/CssBaseline"; //might remove later
 import { Container } from "@mui/material";
-import { textAlign } from "@mui/system";
+// import { textAlign } from "@mui/system"; //come back to YT video
 
 function App(): JSX.Element {
   return (
