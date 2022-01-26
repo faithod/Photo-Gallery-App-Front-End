@@ -1,46 +1,34 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { IGallery } from "../interfaces/IGallery";
+import fetchPhotos from "../utils/fetchPhotos";
 
 export default function PhotoGallery(): JSX.Element {
+  const [search, setSearch] = useState("");
   const [gallery, setGallery] = useState<IGallery[]>([]);
 
-  function simplifyingFetchedData(data: any) {
-    const simplerGalleryData = [];
-    for (const element of data) {
-      simplerGalleryData.push({
-        id: element.id,
-        alt: element.alt_description ? element.alt_description : "", //in the fetched data, sometimes the value is null
-        description: element.description ? element.description : "", //in the fetched data, sometimes the value is null
-        url: element.urls.full,
-      });
-    }
-    return simplerGalleryData;
-  }
-  useEffect(() => {
-    const apiAccessKey = process.env.REACT_APP_API_ACCESS_KEY;
-    const baseURL = `https://api.unsplash.com/collections/9378914/photos?per_page=1000&client_id=${apiAccessKey}`;
-    axios.get(baseURL).then((res) => {
-      console.log(res.data);
-      const simplerData = simplifyingFetchedData(res.data);
-      setGallery(simplerData);
-      console.log(simplerData);
-    });
-  }, []);
+  useEffect(() => fetchPhotos(setGallery, search), []);
 
+  const filterGallery = (photos: IGallery[], search: string) => {
+    const output = [];
+    for (const element of gallery) {
+      if (element.alt.toLowerCase().includes(search.toLowerCase())) {
+        output.push(element);
+      }
+    }
+    return output;
+  };
+  const filteredGallery = filterGallery(gallery, search);
   console.log(gallery);
   return (
     <>
-      {gallery
-        .map((el: IGallery) => (
+      <input onChange={(e) => setSearch(e.target.value)} value={search}></input>
+      <br />
+
+      <p>
+        {filteredGallery.map((el: IGallery) => (
           <img key={el.id} alt={el.alt} src={el.url} width={600}></img>
-        ))
-        .slice(-10)}
+        ))}
+      </p>
     </>
   );
-}
-
-interface IGallery {
-  id: number;
-  alt: string;
-  url: string;
 }
