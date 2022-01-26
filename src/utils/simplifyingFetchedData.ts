@@ -1,4 +1,5 @@
-import { IGallery, IFetchedData } from "../interfaces/IGallery";
+import { IFetchedData } from "../interfaces/IFetchedData";
+import { IGallery } from "../interfaces/IGallery";
 
 export default function simplifyingFetchedData(data: IFetchedData): IGallery[] {
   const simplerGalleryData = [];
