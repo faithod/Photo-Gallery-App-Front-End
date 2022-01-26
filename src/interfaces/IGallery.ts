@@ -28,11 +28,11 @@ interface IImageTypes {
   small: string;
   landscape: string;
   portrait: string;
-  tiny: string
+  tiny: string;
 }
 
 export interface IGallery {
-    id: number;
-    alt: string;
-    url: string;
-  }
+  id: number;
+  alt: string;
+  url: string;
+}
