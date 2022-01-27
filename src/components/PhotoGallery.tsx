@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { IGallery } from "../interfaces/IGallery";
 import fetchPhotos from "../utils/fetchPhotos";
+import MasonryImageList from "./MasonryImageList";
+import Search from "./Search";
 
 export default function PhotoGallery(): JSX.Element {
   const [search, setSearch] = useState("");
@@ -21,14 +23,15 @@ export default function PhotoGallery(): JSX.Element {
   // console.log(gallery);
   return (
     <>
-      <input onChange={(e) => setSearch(e.target.value)} value={search}></input>
+      <Search setSearch={setSearch} search={search} />
       <br />
 
-      <p>
+      {/* <p>
         {filteredGallery.map((el: IGallery) => (
           <img key={el.id} alt={el.alt} src={el.url} width={600}></img>
         ))}
-      </p>
+      </p> */}
+      <MasonryImageList gallery={filteredGallery} />
     </>
   );
 }
