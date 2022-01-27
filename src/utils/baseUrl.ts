@@ -1,1 +1,1 @@
-export const baseUrl = "http://photo-gallery-app-project-4.herokuapp.com/"
+export const baseUrl = "http://photo-gallery-app-project-4.herokuapp.com"

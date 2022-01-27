@@ -1,3 +1,4 @@
+//fetches data from external API 
 import simplifyingFetchedData from "../utils/simplifyingFetchedData";
 import { IGallery } from "../interfaces/IGallery";
 

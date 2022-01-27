@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { IFavourites } from "../interfaces/IFavourites";
-import { baseUrl } from "../utils/baseUrl";
+import fetchData from "../utils/fetchData";
 
 export default function MyFavourites(props: {
   favourites: IFavourites[] | undefined;
@@ -8,14 +8,8 @@ export default function MyFavourites(props: {
     React.SetStateAction<IFavourites[] | undefined>
   >;
 }): JSX.Element {
-  const fetchFavourites = () => {
-    fetch(baseUrl + "favourites").then((res) =>
-      res.json().then((jsonBody) => props.setFavourites(jsonBody.data))
-    );
-  };
-
   useEffect(() => {
-    fetchFavourites();
+    fetchData("/favourites", props.setFavourites);
   }, []);
 
   return (
