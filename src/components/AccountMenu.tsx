@@ -31,6 +31,9 @@ export default function AccountMenu(props: {
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
+        <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+          <Typography sx={{ minWidth: 100 }}>Home</Typography>
+        </Link>
         <Typography sx={{ minWidth: 100 }}>
           Hello, {props.user?.name}
         </Typography>
@@ -84,13 +87,16 @@ export default function AccountMenu(props: {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <Link to="/profile">
+        <Link
+          to="/profile"
+          style={{ color: "inherit", textDecoration: "none" }}
+        >
           <MenuItem>
             <Avatar /> Profile
           </MenuItem>
         </Link>
         <Divider />
-        <Link to="/">
+        <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
           <MenuItem onClick={handleLogOut}>
             <ListItemIcon>
               <Logout fontSize="small" />

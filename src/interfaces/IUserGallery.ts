@@ -1,3 +1,1 @@
-export interface IUserGallery {
-    
-}
+export interface IUserGallery {}
