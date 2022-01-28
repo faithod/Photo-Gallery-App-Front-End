@@ -7,6 +7,8 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
 import { IUser } from "../interfaces/IUser";
 
 export default function Profile(props: {
@@ -48,7 +50,13 @@ export default function Profile(props: {
           user={props.user}
         />
       ) : (
-        <MyGallery userGallery={userGallery} user={props.user} />
+        <>
+          <MyGallery userGallery={userGallery} user={props.user} />
+          <br />
+          <Fab color="primary" aria-label="add">
+            <AddIcon />
+          </Fab>
+        </>
       )}
     </>
   );

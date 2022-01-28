@@ -14,8 +14,7 @@ export default function UsersProfile(props: {
         user={props.user}
         setUser={props.setUser}
       />
-      <h1>{props.user ? props.user.name : "My"} Profile</h1>{" "}
-      {/*use their name */}
+      <h1>{props.user ? props.user.name + "'s" : "My"} Profile</h1>{" "}
       <Profile
         allUsers={props.allUsers}
         user={props.user}
