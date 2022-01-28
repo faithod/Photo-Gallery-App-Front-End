@@ -1,11 +1,25 @@
+import { IUser } from "../../interfaces/IUser";
 import PageHeader from "../PageHeader";
 import Profile from "../Profile";
-
-export default function UsersProfile(): JSX.Element {
+//come back to props etc.
+export default function UsersProfile(props: {
+  allUsers: IUser[] | undefined;
+  user: IUser | undefined;
+  setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
+}): JSX.Element {
   return (
     <>
-      <PageHeader title={"User's Profile"} /> {/*use their name */}
-      <Profile />
+      <PageHeader
+        allUsers={props.allUsers}
+        user={props.user}
+        setUser={props.setUser}
+      />
+      <h1>{props.user ? props.user.name + "'s" : "My"} Profile</h1>{" "}
+      <Profile
+        allUsers={props.allUsers}
+        user={props.user}
+        setUser={props.setUser}
+      />
     </>
   );
 }
