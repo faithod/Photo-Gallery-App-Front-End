@@ -27,6 +27,7 @@ export default function Profile(props: {
 
   const handleTabClick = (bool: boolean) => {
     setIsMyGalleryClicked(bool);
+    setUserGallery(undefined);
   };
 
   console.log(isMyGalleryClicked);

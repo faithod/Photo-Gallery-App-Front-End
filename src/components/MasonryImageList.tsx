@@ -6,7 +6,7 @@ import { IGallery } from "../interfaces/IGallery";
 
 export default function MasonryImageList(props: {
   gallery: IGallery[] | IFavourites[] | undefined;
-}) {
+}): JSX.Element {
   return (
     <Box>
       <ImageList variant="masonry" cols={3} gap={8}>

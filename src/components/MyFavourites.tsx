@@ -13,7 +13,7 @@ export default function MyFavourites(props: {
 }): JSX.Element {
   useEffect(() => {
     fetchData("/favourites", props.setFavourites);
-  }, []);
+  }, [props.setFavourites]);
 
   return (
     <>

@@ -8,7 +8,7 @@ export default function fetchData(
   setState:
     | React.Dispatch<React.SetStateAction<IFavourites[] | undefined>>
     | React.Dispatch<React.SetStateAction<IUser[] | undefined>>
-) {
+): void {
   fetch(baseUrl + endpoint).then((res) =>
     res.json().then((jsonBody) => {
       setState(jsonBody.data);

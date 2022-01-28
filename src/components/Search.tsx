@@ -49,7 +49,7 @@ const StyledInputElement = styled("input")(
 const CustomInput = React.forwardRef(function CustomInput(
   props: InputUnstyledProps,
   ref: React.ForwardedRef<HTMLDivElement>
-) {
+): JSX.Element {
   return (
     <InputUnstyled
       components={{ Input: StyledInputElement }}
@@ -62,7 +62,7 @@ const CustomInput = React.forwardRef(function CustomInput(
 export default function Search(props: {
   setSearch: React.Dispatch<React.SetStateAction<string>>;
   search: string;
-}) {
+}): JSX.Element {
   return (
     <CustomInput
       onChange={(e) => props.setSearch(e.target.value)}
