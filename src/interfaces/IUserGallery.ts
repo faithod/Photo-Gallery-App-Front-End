@@ -1,4 +1,3 @@
-
 export default interface IUserGallery {
-    url: string;
+  url: string;
 }
