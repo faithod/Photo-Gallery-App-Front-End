@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IFavourites } from "../interfaces/IFavourites";
-import { IUserGallery } from "../interfaces/IUserGallery";
+import IUserGallery from "../interfaces/IUserGallery";
 import MyFavourites from "./MyFavourites";
 import MyGallery from "./MyGallery";
 import * as React from "react";
