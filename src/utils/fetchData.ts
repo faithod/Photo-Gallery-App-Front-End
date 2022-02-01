@@ -1,4 +1,4 @@
-//fetches data using baseUrl
+//fetches data from back-end using baseUrl
 import { IFavourites } from "../interfaces/IFavourites";
 import { IUser } from "../interfaces/IUser";
 import { baseUrl } from "../utils/baseUrl";

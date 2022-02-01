@@ -9,12 +9,12 @@ export default function fetchPhotos(
   search: string
 ): void {
   const query = `interior+design+${search}`;
-  // const apiAccessKey = process.env.REACT_APP_API_ACCESS_KEY;
+  const apiAccessKey: HeadersInit | undefined | string = process.env.REACT_APP_API_ACCESS_KEY;
 
   fetch(`https://api.pexels.com/v1/search?per_page=1000&query=${query}`, {
     headers: {
-      Authorization: "563492ad6f91700001000001aa1757fa15d04b3b8ed2b8c1958a7869", //hide this key
-    },
+      Authorization: apiAccessKey? apiAccessKey : "" //hide this key
+    }
   })
     .then((resp) => {
       return resp.json();

@@ -68,7 +68,7 @@ export default function Search(props: {
       onChange={(e) => props.setSearch(e.target.value)}
       value={props.search}
       aria-label="Demo input"
-      placeholder="Type something..."
+      placeholder="Search Images"
     />
   );
 }
