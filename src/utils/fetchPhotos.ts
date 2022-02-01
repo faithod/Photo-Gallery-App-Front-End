@@ -1,6 +1,7 @@
 //fetches data from external API
 import simplifyingFetchedData from "../utils/simplifyingFetchedData";
 import { IGallery } from "../interfaces/IGallery";
+//import dotenv
 
 export default function fetchPhotos(
   setState: React.Dispatch<React.SetStateAction<IGallery[]>>,
