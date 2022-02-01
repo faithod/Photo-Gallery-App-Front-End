@@ -2,7 +2,7 @@
 import simplifyingFetchedData from "../utils/simplifyingFetchedData";
 import { IGallery } from "../interfaces/IGallery";
 //import dotenv
-import 'dotenv/config'
+import "dotenv/config";
 
 export default function fetchPhotos(
   setState: React.Dispatch<React.SetStateAction<IGallery[]>>,
