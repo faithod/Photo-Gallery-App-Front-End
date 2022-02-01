@@ -1,1 +1,3 @@
-export interface IUserGallery {}
+export default interface IUserGallery {
+  url: string;
+}
