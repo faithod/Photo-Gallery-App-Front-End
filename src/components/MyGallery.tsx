@@ -1,5 +1,5 @@
 import { IUser } from "../interfaces/IUser";
-import { IUserGallery } from "../interfaces/IUserGallery";
+import IUserGallery from "../interfaces/IUserGallery";
 
 export default function MyGallery(props: {
   userGallery: IUserGallery | undefined;
