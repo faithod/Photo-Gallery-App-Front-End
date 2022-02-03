@@ -6,6 +6,7 @@ import { Container } from "@mui/material";
 import { useEffect, useState } from "react";
 import { IUser } from "./interfaces/IUser";
 import fetchData from "./utils/fetchData";
+import "./styles.css";
 // import { textAlign } from "@mui/system"; //come back to YT video
 
 function App(): JSX.Element {
