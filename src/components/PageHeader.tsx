@@ -1,5 +1,5 @@
 import { IUser } from "../interfaces/IUser";
-import Login from "./Login";
+import Login from "./LoginDropdown";
 
 export default function PageHeader(props: {
   allUsers: IUser[] | undefined;

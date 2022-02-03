@@ -20,11 +20,7 @@ export default function MyFavourites(props: {
       {/* {props.favourites?.map((el) => (
         <img key={el.id} src={el.url} alt={el.alt} width={600}></img>
       ))} */}
-      {props.user ? (
-        <MasonryImageList gallery={props.favourites} />
-      ) : (
-        "please log in to view"
-      )}
+      <MasonryImageList gallery={props.favourites} />
     </>
   );
 }
