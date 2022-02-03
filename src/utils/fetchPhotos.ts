@@ -11,7 +11,7 @@ export default function fetchPhotos(
 
   fetch(`https://api.pexels.com/v1/search?per_page=1000&query=${query}`, {
     headers: {
-      Authorization: apiAccessKey? apiAccessKey : "" //hide this key
+      Authorization: apiAccessKey ? apiAccessKey : ""
     }
   })
     .then((resp) => {

@@ -20,7 +20,6 @@ export default function PhotoGallery(): JSX.Element {
     return output;
   };
   const filteredGallery = filterGallery(gallery, search);
-  // console.log(gallery);
   return (
     <>
       <Search setSearch={setSearch} search={search} />
