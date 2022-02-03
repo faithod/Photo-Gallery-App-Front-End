@@ -5,9 +5,11 @@ import { IFavourites } from "../interfaces/IFavourites";
 import { IGallery } from "../interfaces/IGallery";
 import { useState } from "react";
 import FavouriteButton from "./FavouriteButton";
+import { IUser } from "../interfaces/IUser";
 
 export default function MasonryImageList(props: {
   gallery: IGallery[] | IFavourites[] | undefined;
+  user: IUser | undefined;
 }): JSX.Element {
   //using onMouseEnter&onMouseLeave to only show the favourites button when the user is hovering over the image
   const [isHovering, setIsHovering] = useState(false);
@@ -30,7 +32,11 @@ export default function MasonryImageList(props: {
                       onMouseLeave={() => setIsHovering(false)}
                     />
                     {isHovering && (
-                      <FavouriteButton setIsHovering={setIsHovering} />
+                      <FavouriteButton
+                        user={props.user}
+                        image={item}
+                        setIsHovering={setIsHovering}
+                      />
                     )}
                   </ImageListItem>
                 </div>

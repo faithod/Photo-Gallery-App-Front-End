@@ -1,12 +1,26 @@
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
+import axios from "axios";
+import { IFavourites } from "../interfaces/IFavourites";
+import { IGallery } from "../interfaces/IGallery";
+import { IUser } from "../interfaces/IUser";
+import { baseUrl } from "../utils/baseUrl";
 
 export default function FavouriteButton(props: {
   setIsHovering: React.Dispatch<React.SetStateAction<boolean>>;
+  user: IUser | undefined;
+  image: IGallery | IFavourites;
 }): JSX.Element {
   const handleAddToFavourites = () => {
-    console.log("ayy");
+    console.log(props.image.id);
+    if (props.user) {
+      axios.post(baseUrl + `/favourites/${props.user.id}`, {
+        photo_id: props.image.id,
+        alt: props.image.alt,
+        url: props.image.url,
+      });
+    }
   };
 
   return (
