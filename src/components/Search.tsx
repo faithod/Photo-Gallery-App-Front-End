@@ -22,20 +22,19 @@ const grey = {
 
 const StyledInputElement = styled("input")(
   ({ theme }) => `
-  width: 320px;
+  width: 400px;
   font-size: 0.875rem;
   font-family: IBM Plex Sans, sans-serif;
   font-weight: 400;
   line-height: 1.5;
   color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  background: ${theme.palette.mode === "dark" ? grey[900] : grey[50]};
   border: 1px solid ${theme.palette.mode === "dark" ? grey[800] : grey[300]};
   border-radius: 8px;
   padding: 12px 12px;
   transition: all 150ms ease;
 
   &:hover {
-    background: ${theme.palette.mode === "dark" ? "" : grey[100]};
+    background: ${theme.palette.mode === "dark" ? "" : grey[50]};
     border-color: ${theme.palette.mode === "dark" ? grey[700] : grey[400]};
   }
 
@@ -67,7 +66,7 @@ export default function Search(props: {
     <CustomInput
       onChange={(e) => props.setSearch(e.target.value)}
       value={props.search}
-      aria-label="Demo input"
+      aria-label="input"
       placeholder="Search Images"
     />
   );
