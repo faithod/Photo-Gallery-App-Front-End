@@ -6,6 +6,7 @@ import { IGallery } from "../interfaces/IGallery";
 import { useState } from "react";
 import FavouriteButton from "./FavouriteButton";
 import { IUser } from "../interfaces/IUser";
+import { useLocation } from "react-router-dom";
 
 export default function MasonryImageList(props: {
   gallery: IGallery[] | IFavourites[] | undefined;
@@ -13,7 +14,9 @@ export default function MasonryImageList(props: {
 }): JSX.Element {
   //using onMouseEnter&onMouseLeave to only show the favourites button when the user is hovering over the image
   const [isHovering, setIsHovering] = useState(false);
-  console.log(isHovering);
+
+  const location = useLocation();
+  console.log(location.pathname);
 
   return (
     <Box>
@@ -31,12 +34,15 @@ export default function MasonryImageList(props: {
                       onMouseEnter={() => setIsHovering(true)}
                       onMouseLeave={() => setIsHovering(false)}
                     />
-                    {isHovering && (
+                    {/*conditionally rendering favourites button based on hover & location */}
+                    {isHovering && location.pathname === "/" ? (
                       <FavouriteButton
                         user={props.user}
                         image={item}
                         setIsHovering={setIsHovering}
                       />
+                    ) : (
+                      ""
                     )}
                   </ImageListItem>
                 </div>
