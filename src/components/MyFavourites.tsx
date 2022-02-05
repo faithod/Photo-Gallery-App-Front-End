@@ -20,7 +20,11 @@ export default function MyFavourites(props: {
   return (
     <>
       {props.user ? (
-        <MasonryImageList user={props.user} gallery={props.favourites} />
+        <MasonryImageList
+          user={props.user}
+          gallery={props.favourites}
+          setFavourites={props.setFavourites}
+        />
       ) : (
         "please log in to view"
       )}

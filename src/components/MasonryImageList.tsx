@@ -7,10 +7,14 @@ import { useState } from "react";
 import FavouriteButton from "./FavouriteButton";
 import { IUser } from "../interfaces/IUser";
 import { useLocation } from "react-router-dom";
+import DeleteButton from "./DeleteButton";
 
 export default function MasonryImageList(props: {
   gallery: IGallery[] | IFavourites[] | undefined;
   user: IUser | undefined;
+  setFavourites?: React.Dispatch<
+    React.SetStateAction<IFavourites[] | undefined>
+  >;
 }): JSX.Element {
   //using onMouseEnter&onMouseLeave to only show the favourites button when the user is hovering over the image
   const [isHovering, setIsHovering] = useState(false);
@@ -40,6 +44,17 @@ export default function MasonryImageList(props: {
                         user={props.user}
                         image={item}
                         setIsHovering={setIsHovering}
+                      />
+                    ) : (
+                      ""
+                    )}
+                    {/*conditionally rendering delete button based on hover & location */}
+                    {isHovering && location.pathname === "/profile" ? (
+                      <DeleteButton
+                        user={props.user}
+                        image={item}
+                        setIsHovering={setIsHovering}
+                        setFavourites={props.setFavourites}
                       />
                     ) : (
                       ""
