@@ -1,6 +1,8 @@
+import { Location } from "react-router-dom";
+
 export function isDeleteButtonShown(
   isHovering: boolean,
-  location: import("/home/2110-003-fod/Developer/academy/Photo-Gallery-App-Front-End/node_modules/history/index").Location
+  location: Location
 ): boolean {
   if (isHovering && location.pathname === "/profile") {
     return true;
