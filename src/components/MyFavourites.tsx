@@ -12,14 +12,13 @@ export default function MyFavourites(props: {
   user: IUser | undefined;
 }): JSX.Element {
   useEffect(() => {
-    fetchData("/favourites", props.setFavourites);
-  }, [props.setFavourites]);
+    if (props.user) {
+      fetchData(`/favourites/${props.user.id}`, props.setFavourites);
+    }
+  }, [props.setFavourites, props.user]);
 
   return (
     <>
-      {/* {props.favourites?.map((el) => (
-        <img key={el.id} src={el.url} alt={el.alt} width={600}></img>
-      ))} */}
       {props.user ? (
         <MasonryImageList user={props.user} gallery={props.favourites} />
       ) : (
