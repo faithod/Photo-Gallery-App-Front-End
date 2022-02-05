@@ -1,0 +1,3 @@
+# so I can access the path "/profile" in deployed Netifly app
+/ /profile
+/profile /
