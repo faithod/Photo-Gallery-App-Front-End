@@ -6,7 +6,6 @@ import Select from "@mui/material/Select";
 import { IUser } from "../interfaces/IUser";
 // import { Link } from "react-router-dom";
 import AccountMenu from "./AccountMenu";
-import "../styles.css";
 
 export default function SelectLabels(props: {
   allUsers: IUser[] | undefined;

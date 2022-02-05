@@ -14,7 +14,7 @@ export default function Home(props: {
         setUser={props.setUser}
       />
       <h1>Photo Gallery App</h1>
-      <PhotoGallery />
+      <PhotoGallery user={props.user} />
     </>
   );
 }

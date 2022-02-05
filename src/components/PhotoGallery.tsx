@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { IGallery } from "../interfaces/IGallery";
+import { IUser } from "../interfaces/IUser";
 import fetchPhotos from "../utils/fetchPhotos";
 import MasonryImageList from "./MasonryImageList";
 import Search from "./Search";
 
-export default function PhotoGallery(): JSX.Element {
+export default function PhotoGallery(props: {
+  user: IUser | undefined;
+}): JSX.Element {
   const [search, setSearch] = useState("");
   const [gallery, setGallery] = useState<IGallery[]>([]);
 
@@ -20,18 +23,11 @@ export default function PhotoGallery(): JSX.Element {
     return output;
   };
   const filteredGallery = filterGallery(gallery, search);
-  // console.log(gallery);
   return (
     <>
       <Search setSearch={setSearch} search={search} />
       <br />
-
-      {/* <p>
-        {filteredGallery.map((el: IGallery) => (
-          <img key={el.id} alt={el.alt} src={el.url} width={600}></img>
-        ))}
-      </p> */}
-      <MasonryImageList gallery={filteredGallery} />
+      <MasonryImageList user={props.user} gallery={filteredGallery} />
     </>
   );
 }
