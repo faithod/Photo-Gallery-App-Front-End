@@ -27,43 +27,37 @@ export default function MasonryImageList(props: {
     <Box>
       <ImageList variant="masonry" cols={3} gap={8}>
         {props.gallery
-          ? props.gallery
-              .map((item) => (
-                <div className="img-container" key={item.id}>
-                  <ImageListItem>
-                    <img
-                      src={`${item.url}?w=248&fit=crop&auto=format`}
-                      srcSet={`${item.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                      alt={item.alt}
-                      loading="lazy"
-                      onMouseEnter={() => setIsHovering(true)}
-                      onMouseLeave={() => setIsHovering(false)}
+          ? props.gallery.map((item) => (
+              <div className="img-container" key={item.id}>
+                <ImageListItem>
+                  <img
+                    src={`${item.url}?w=248&fit=crop&auto=format`}
+                    srcSet={`${item.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                    alt={item.alt}
+                    loading="lazy"
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
+                  />
+                  {/*conditionally rendering favourites button based on hover & location */}
+                  {isFavouriteButtonShown(isHovering, location, props.user) && (
+                    <FavouriteButton
+                      user={props.user}
+                      image={item}
+                      setIsHovering={setIsHovering}
                     />
-                    {/*conditionally rendering favourites button based on hover & location */}
-                    {isFavouriteButtonShown(
-                      isHovering,
-                      location,
-                      props.user
-                    ) && (
-                      <FavouriteButton
-                        user={props.user}
-                        image={item}
-                        setIsHovering={setIsHovering}
-                      />
-                    )}
-                    {/*conditionally rendering delete button based on hover & location */}
-                    {isDeleteButtonShown(isHovering, location) && (
-                      <DeleteButton
-                        user={props.user}
-                        image={item}
-                        setIsHovering={setIsHovering}
-                        setFavourites={props.setFavourites}
-                      />
-                    )}
-                  </ImageListItem>
-                </div>
-              ))
-              .slice(-30) //change later (pagination/infinite scrolling)
+                  )}
+                  {/*conditionally rendering delete button based on hover & location */}
+                  {isDeleteButtonShown(isHovering, location) && (
+                    <DeleteButton
+                      user={props.user}
+                      image={item}
+                      setIsHovering={setIsHovering}
+                      setFavourites={props.setFavourites}
+                    />
+                  )}
+                </ImageListItem>
+              </div>
+            ))
           : ""}
       </ImageList>
     </Box>
