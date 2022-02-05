@@ -8,6 +8,8 @@ import FavouriteButton from "./FavouriteButton";
 import { IUser } from "../interfaces/IUser";
 import { useLocation } from "react-router-dom";
 import DeleteButton from "./DeleteButton";
+import { isFavouriteButtonShown } from "../utils/isFavouriteButtonShown";
+import { isDeleteButtonShown } from "../utils/isDeleteButtonShown";
 
 export default function MasonryImageList(props: {
   gallery: IGallery[] | IFavourites[] | undefined;
@@ -20,7 +22,6 @@ export default function MasonryImageList(props: {
   const [isHovering, setIsHovering] = useState(false);
 
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <Box>
@@ -39,25 +40,25 @@ export default function MasonryImageList(props: {
                       onMouseLeave={() => setIsHovering(false)}
                     />
                     {/*conditionally rendering favourites button based on hover & location */}
-                    {isHovering && location.pathname === "/" ? (
+                    {isFavouriteButtonShown(
+                      isHovering,
+                      location,
+                      props.user
+                    ) && (
                       <FavouriteButton
                         user={props.user}
                         image={item}
                         setIsHovering={setIsHovering}
                       />
-                    ) : (
-                      ""
                     )}
                     {/*conditionally rendering delete button based on hover & location */}
-                    {isHovering && location.pathname === "/profile" ? (
+                    {isDeleteButtonShown(isHovering, location) && (
                       <DeleteButton
                         user={props.user}
                         image={item}
                         setIsHovering={setIsHovering}
                         setFavourites={props.setFavourites}
                       />
-                    ) : (
-                      ""
                     )}
                   </ImageListItem>
                 </div>
