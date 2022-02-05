@@ -30,7 +30,14 @@ export default function AccountMenu(props: {
   };
   return (
     <React.Fragment>
-      <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
         <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
           <Typography sx={{ minWidth: 100 }}>Home</Typography>
         </Link>
