@@ -14,7 +14,7 @@ import { isDeleteButtonShown } from "../utils/isDeleteButtonShown";
 export default function MasonryImageList(props: {
   gallery: IGallery[] | IFavourites[] | undefined;
   user: IUser | undefined;
-  setFavourites?: React.Dispatch<
+  setFavourites: React.Dispatch<
     React.SetStateAction<IFavourites[] | undefined>
   >;
 }): JSX.Element {
@@ -44,6 +44,7 @@ export default function MasonryImageList(props: {
                       user={props.user}
                       image={item}
                       setIsHovering={setIsHovering}
+                      setFavourites={props.setFavourites}
                     />
                   )}
                   {/*conditionally rendering delete button based on hover & location */}

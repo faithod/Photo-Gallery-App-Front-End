@@ -6,19 +6,27 @@ import { IFavourites } from "../interfaces/IFavourites";
 import { IGallery } from "../interfaces/IGallery";
 import { IUser } from "../interfaces/IUser";
 import { baseUrl } from "../utils/baseUrl";
+import fetchData from "../utils/fetchData";
 
 export default function FavouriteButton(props: {
   setIsHovering: React.Dispatch<React.SetStateAction<boolean>>;
   user: IUser | undefined;
   image: IGallery | IFavourites;
+  setFavourites: React.Dispatch<
+    React.SetStateAction<IFavourites[] | undefined>
+  >;
 }): JSX.Element {
   const handleAddToFavourites = () => {
     if (props.user) {
-      axios.post(baseUrl + `/favourites/${props.user.id}`, {
-        photo_id: props.image.id,
-        alt: props.image.alt,
-        url: props.image.url,
-      });
+      axios
+        .post(baseUrl + `/favourites/${props.user.id}`, {
+          photo_id: props.image.id,
+          alt: props.image.alt,
+          url: props.image.url,
+        })
+        .then(() => {
+          fetchData("/favourites", props.setFavourites);
+        });
     }
   };
 
