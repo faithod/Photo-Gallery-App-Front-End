@@ -1,3 +1,4 @@
+import { IFavourites } from "../../interfaces/IFavourites";
 import { IUser } from "../../interfaces/IUser";
 import PageHeader from "../PageHeader";
 import Profile from "../Profile";
@@ -6,6 +7,10 @@ export default function UsersProfile(props: {
   allUsers: IUser[] | undefined;
   user: IUser | undefined;
   setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
+  favourites: IFavourites[] | undefined;
+  setFavourites: React.Dispatch<
+    React.SetStateAction<IFavourites[] | undefined>
+  >;
 }): JSX.Element {
   return (
     <>
@@ -19,6 +24,8 @@ export default function UsersProfile(props: {
         allUsers={props.allUsers}
         user={props.user}
         setUser={props.setUser}
+        favourites={props.favourites}
+        setFavourites={props.setFavourites}
       />
     </>
   );

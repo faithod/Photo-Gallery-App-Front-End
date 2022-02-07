@@ -15,8 +15,11 @@ export default function Profile(props: {
   allUsers: IUser[] | undefined;
   user: IUser | undefined;
   setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
+  favourites: IFavourites[] | undefined;
+  setFavourites: React.Dispatch<
+    React.SetStateAction<IFavourites[] | undefined>
+  >;
 }): JSX.Element {
-  const [favourites, setFavourites] = useState<IFavourites[]>();
   const [userGallery, setUserGallery] = useState<IUserGallery>();
   const [isMyGalleryClicked, setIsMyGalleryClicked] = useState<boolean>(false);
 
@@ -46,8 +49,8 @@ export default function Profile(props: {
 
       {!isMyGalleryClicked ? (
         <MyFavourites
-          favourites={favourites}
-          setFavourites={setFavourites}
+          favourites={props.favourites}
+          setFavourites={props.setFavourites}
           user={props.user}
         />
       ) : (
