@@ -7,15 +7,22 @@ import { useEffect, useState } from "react";
 import { IUser } from "./interfaces/IUser";
 import fetchData from "./utils/fetchData";
 import "./styles.css";
+import { IFavourites } from "./interfaces/IFavourites";
 // import { textAlign } from "@mui/system"; //come back to YT video
 
 function App(): JSX.Element {
   const [allUsers, setAllUsers] = useState<IUser[]>();
   const [user, setUser] = useState<IUser>();
+  const [favourites, setFavourites] = useState<IFavourites[]>();
 
   useEffect(() => {
     fetchData("/users", setAllUsers);
   }, []);
+  useEffect(() => {
+    if (user) {
+      fetchData(`/favourites/${user.id}`, setFavourites);
+    }
+  }, [setFavourites, user]);
   return (
     <>
       <CssBaseline />
@@ -25,7 +32,13 @@ function App(): JSX.Element {
             <Route
               path="/"
               element={
-                <Home allUsers={allUsers} user={user} setUser={setUser} />
+                <Home
+                  allUsers={allUsers}
+                  user={user}
+                  setUser={setUser}
+                  favourites={favourites}
+                  setFavourites={setFavourites}
+                />
               }
             />
             <Route
@@ -35,6 +48,8 @@ function App(): JSX.Element {
                   allUsers={allUsers}
                   user={user}
                   setUser={setUser}
+                  favourites={favourites}
+                  setFavourites={setFavourites}
                 />
               }
             />

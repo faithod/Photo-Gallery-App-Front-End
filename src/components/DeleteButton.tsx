@@ -12,9 +12,9 @@ export default function DeleteButton(props: {
   setIsHovering: React.Dispatch<React.SetStateAction<boolean>>;
   user: IUser | undefined;
   image: IGallery | IFavourites;
-  setFavourites:
-    | React.Dispatch<React.SetStateAction<IFavourites[] | undefined>>
-    | undefined;
+  setFavourites: React.Dispatch<
+    React.SetStateAction<IFavourites[] | undefined>
+  >;
 }): JSX.Element {
   const handleDeletePhoto = () => {
     if (props.user && props.image) {
@@ -24,9 +24,7 @@ export default function DeleteButton(props: {
           baseUrl + `/favourites/${props.user.id}/${props.image.photo_id}`
         )
         .then(() => {
-          if (props.setFavourites) {
-            fetchData(`/favourites/${props.user?.id}`, props.setFavourites);
-          }
+          fetchData(`/favourites/${props.user?.id}`, props.setFavourites);
         });
     }
   };

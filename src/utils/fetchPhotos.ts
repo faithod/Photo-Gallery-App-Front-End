@@ -10,7 +10,7 @@ export default function fetchPhotos(
   const apiAccessKey: HeadersInit | undefined | string =
     process.env.REACT_APP_API_ACCESS_KEY;
 
-  fetch(`https://api.pexels.com/v1/search?per_page=1000&query=${query}`, {
+  fetch(`https://api.pexels.com/v1/search?per_page=40&query=${query}`, {
     headers: {
       Authorization: apiAccessKey ? apiAccessKey : "",
     },
@@ -24,3 +24,5 @@ export default function fetchPhotos(
       setState(simplerData);
     });
 }
+
+//change later (pagination/infinite scrolling)
