@@ -19,7 +19,6 @@ export default function fetchPhotos(
       return resp.json();
     })
     .then((data) => {
-      console.log(data);
       const simplerData = simplifyingFetchedData(data);
       setState(simplerData);
     });

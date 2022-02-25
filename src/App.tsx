@@ -8,7 +8,6 @@ import { IUser } from "./interfaces/IUser";
 import fetchData from "./utils/fetchData";
 import "./styles.css";
 import { IFavourites } from "./interfaces/IFavourites";
-// import { textAlign } from "@mui/system"; //come back to YT video
 
 function App(): JSX.Element {
   const [allUsers, setAllUsers] = useState<IUser[]>();
@@ -17,8 +16,6 @@ function App(): JSX.Element {
 
   useEffect(() => {
     fetchData("/users", setAllUsers);
-  }, []);
-  useEffect(() => {
     if (user) {
       fetchData(`/favourites/${user.id}`, setFavourites);
     }

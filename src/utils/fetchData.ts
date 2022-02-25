@@ -12,7 +12,6 @@ export default function fetchData(
   fetch(baseUrl + endpoint).then((res) =>
     res.json().then((data) => {
       setState(data.data);
-      console.log(data.data);
     })
   );
 }

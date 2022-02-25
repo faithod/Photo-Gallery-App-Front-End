@@ -24,7 +24,6 @@ export default function Profile(props: ProfileProps): JSX.Element {
     setUserGallery(undefined);
   };
 
-  console.log(isMyGalleryClicked);
   return (
     <>
       <Box sx={{ width: "100%" }}>

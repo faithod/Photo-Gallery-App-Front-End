@@ -9,7 +9,6 @@ import fetchData from "../utils/fetchData";
 export default function DeleteButton(props: DeleteButtonProps): JSX.Element {
   const handleDeletePhoto = () => {
     if (props.user && props.image) {
-      console.log(props.user.id, props.image.photo_id);
       axios
         .delete(
           baseUrl + `/favourites/${props.user.id}/${props.image.photo_id}`
