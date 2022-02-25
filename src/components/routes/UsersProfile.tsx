@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { IFavourites } from "../../interfaces/IFavourites";
 import { IUser } from "../../interfaces/IUser";
 import PageHeader from "../PageHeader";
@@ -12,6 +13,9 @@ export default function UsersProfile(props: {
     React.SetStateAction<IFavourites[] | undefined>
   >;
 }): JSX.Element {
+  useEffect(() => {
+    document.title = "Profile";
+  }, []);
   return (
     <>
       <PageHeader
