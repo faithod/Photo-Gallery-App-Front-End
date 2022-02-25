@@ -1,11 +1,7 @@
-import { IUser } from "../interfaces/IUser";
+import { PageHeaderProps } from "../interfaces/PageHeaderProps";
 import Login from "./Login";
 
-export default function PageHeader(props: {
-  allUsers: IUser[] | undefined;
-  user: IUser | undefined;
-  setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
-}): JSX.Element {
+export default function PageHeader(props: PageHeaderProps): JSX.Element {
   return (
     <>
       <Login

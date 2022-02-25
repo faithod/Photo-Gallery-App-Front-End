@@ -1,14 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/routes/Home";
 import UsersProfile from "./components/routes/UsersProfile";
-import CssBaseline from "@mui/material/CssBaseline"; //might remove later
-import { Container } from "@mui/material";
+import { Container, CssBaseline } from "@mui/material"; //might remove cssbaseline later
 import { useEffect, useState } from "react";
 import { IUser } from "./interfaces/IUser";
+import { IFavourites } from "./interfaces/IFavourites";
 import fetchData from "./utils/fetchData";
 import "./styles.css";
-import { IFavourites } from "./interfaces/IFavourites";
-// import { textAlign } from "@mui/system"; //come back to YT video
 
 function App(): JSX.Element {
   const [allUsers, setAllUsers] = useState<IUser[]>();
@@ -17,8 +15,6 @@ function App(): JSX.Element {
 
   useEffect(() => {
     fetchData("/users", setAllUsers);
-  }, []);
-  useEffect(() => {
     if (user) {
       fetchData(`/favourites/${user.id}`, setFavourites);
     }

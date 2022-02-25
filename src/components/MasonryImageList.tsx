@@ -1,23 +1,17 @@
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { IFavourites } from "../interfaces/IFavourites";
-import { IGallery } from "../interfaces/IGallery";
 import { useState } from "react";
-import FavouriteButton from "./FavouriteButton";
-import { IUser } from "../interfaces/IUser";
 import { useLocation } from "react-router-dom";
+import FavouriteButton from "./FavouriteButton";
 import DeleteButton from "./DeleteButton";
 import { isFavouriteButtonShown } from "../utils/isFavouriteButtonShown";
 import { isDeleteButtonShown } from "../utils/isDeleteButtonShown";
+import { MasonryImageListProps } from "../interfaces/MasonryImageListProps";
 
-export default function MasonryImageList(props: {
-  gallery: IGallery[] | IFavourites[] | undefined;
-  user: IUser | undefined;
-  setFavourites: React.Dispatch<
-    React.SetStateAction<IFavourites[] | undefined>
-  >;
-}): JSX.Element {
+export default function MasonryImageList(
+  props: MasonryImageListProps
+): JSX.Element {
   //using onMouseEnter&onMouseLeave to only show the favourites button when the user is hovering over the image
   const [isHovering, setIsHovering] = useState(false);
 
