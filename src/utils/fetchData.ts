@@ -10,9 +10,9 @@ export default function fetchData(
     | React.Dispatch<React.SetStateAction<IUser[] | undefined>>
 ): void {
   fetch(baseUrl + endpoint).then((res) =>
-    res.json().then((jsonBody) => {
-      setState(jsonBody.data);
-      console.log(jsonBody.data);
+    res.json().then((data) => {
+      setState(data.data);
+      console.log(data.data);
     })
   );
 }
