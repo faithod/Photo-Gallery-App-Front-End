@@ -9,14 +9,10 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import Logout from "@mui/icons-material/Logout";
-import { IUser } from "../interfaces/IUser";
 import { Link } from "react-router-dom";
+import { AccountMenuProps } from "../interfaces/AccountMenuProps";
 
-export default function AccountMenu(props: {
-  allUsers: IUser[] | undefined;
-  user: IUser | undefined;
-  setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
-}): JSX.Element {
+export default function AccountMenu(props: AccountMenuProps): JSX.Element {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {

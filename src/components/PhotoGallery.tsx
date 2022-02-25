@@ -1,19 +1,12 @@
 import { useState, useEffect } from "react";
-import { IFavourites } from "../interfaces/IFavourites";
 import { IGallery } from "../interfaces/IGallery";
-import { IUser } from "../interfaces/IUser";
 import fetchPhotos from "../utils/fetchPhotos";
 import MasonryImageList from "./MasonryImageList";
 import Search from "./Search";
 import { filterGallery } from "../utils/filterGallery";
+import { PhotoGalleryProps } from "../interfaces/PhotoGalleryProps";
 
-export default function PhotoGallery(props: {
-  user: IUser | undefined;
-  favourites: IFavourites[] | undefined;
-  setFavourites: React.Dispatch<
-    React.SetStateAction<IFavourites[] | undefined>
-  >;
-}): JSX.Element {
+export default function PhotoGallery(props: PhotoGalleryProps): JSX.Element {
   const [search, setSearch] = useState("");
   const [gallery, setGallery] = useState<IGallery[]>([]);
 

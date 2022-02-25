@@ -3,15 +3,11 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { IUser } from "../interfaces/IUser";
-// import { Link } from "react-router-dom";
 import AccountMenu from "./AccountMenu";
+import { IUser } from "../interfaces/IUser";
+import { LoginProps } from "../interfaces/LoginProps";
 
-export default function SelectLabels(props: {
-  allUsers: IUser[] | undefined;
-  user: IUser | undefined;
-  setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
-}): JSX.Element {
+export default function Login(props: LoginProps): JSX.Element {
   const getUserById = (usersArr: IUser[] | undefined, id: number) => {
     return usersArr?.filter((user) => user.id === id)[0];
   };

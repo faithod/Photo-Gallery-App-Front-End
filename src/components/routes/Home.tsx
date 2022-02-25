@@ -1,16 +1,8 @@
-import { IFavourites } from "../../interfaces/IFavourites";
-import { IUser } from "../../interfaces/IUser";
+import { HomeProps } from "../../interfaces/HomeProps";
 import PageHeader from "../PageHeader";
 import PhotoGallery from "../PhotoGallery";
-export default function Home(props: {
-  allUsers: IUser[] | undefined;
-  user: IUser | undefined;
-  setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
-  favourites: IFavourites[] | undefined;
-  setFavourites: React.Dispatch<
-    React.SetStateAction<IFavourites[] | undefined>
-  >;
-}): JSX.Element {
+
+export default function Home(props: HomeProps): JSX.Element {
   return (
     <>
       <PageHeader

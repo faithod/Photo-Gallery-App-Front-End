@@ -1,18 +1,9 @@
 import { useEffect } from "react";
-import { IFavourites } from "../../interfaces/IFavourites";
-import { IUser } from "../../interfaces/IUser";
+import { UsersProfileProps } from "../../interfaces/UsersProfileProps";
 import PageHeader from "../PageHeader";
 import Profile from "../Profile";
-//come back to props etc.
-export default function UsersProfile(props: {
-  allUsers: IUser[] | undefined;
-  user: IUser | undefined;
-  setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
-  favourites: IFavourites[] | undefined;
-  setFavourites: React.Dispatch<
-    React.SetStateAction<IFavourites[] | undefined>
-  >;
-}): JSX.Element {
+
+export default function UsersProfile(props: UsersProfileProps): JSX.Element {
   useEffect(() => {
     document.title = "Profile";
   }, []);

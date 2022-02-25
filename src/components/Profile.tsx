@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { IFavourites } from "../interfaces/IFavourites";
 import IUserGallery from "../interfaces/IUserGallery";
 import MyFavourites from "./MyFavourites";
 import MyGallery from "./MyGallery";
@@ -9,17 +8,9 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-import { IUser } from "../interfaces/IUser";
+import { ProfileProps } from "../interfaces/ProfileProps";
 
-export default function Profile(props: {
-  allUsers: IUser[] | undefined;
-  user: IUser | undefined;
-  setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
-  favourites: IFavourites[] | undefined;
-  setFavourites: React.Dispatch<
-    React.SetStateAction<IFavourites[] | undefined>
-  >;
-}): JSX.Element {
+export default function Profile(props: ProfileProps): JSX.Element {
   const [userGallery, setUserGallery] = useState<IUserGallery>();
   const [isMyGalleryClicked, setIsMyGalleryClicked] = useState<boolean>(false);
 
