@@ -1,10 +1,6 @@
-import { IUser } from "../interfaces/IUser";
-import IUserGallery from "../interfaces/IUserGallery";
+import { MyGalleryProps } from "../interfaces/MyGalleryProps";
 
-export default function MyGallery(props: {
-  userGallery: IUserGallery | undefined;
-  user: IUser | undefined;
-}): JSX.Element {
+export default function MyGallery(props: MyGalleryProps): JSX.Element {
   return (
     <>
       {props.user ? "" : "please log in to view"}{" "}

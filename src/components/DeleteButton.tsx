@@ -1,24 +1,13 @@
 import DeleteIcon from "@mui/icons-material/Delete";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
+import { IconButton, Tooltip } from "@mui/material";
 import axios from "axios";
-import { IFavourites } from "../interfaces/IFavourites";
-import { IGallery } from "../interfaces/IGallery";
-import { IUser } from "../interfaces/IUser";
+import { DeleteButtonProps } from "../interfaces/DeleteButtonProps";
 import { baseUrl } from "../utils/baseUrl";
 import fetchData from "../utils/fetchData";
 
-export default function DeleteButton(props: {
-  setIsHovering: React.Dispatch<React.SetStateAction<boolean>>;
-  user: IUser | undefined;
-  image: IGallery | IFavourites;
-  setFavourites: React.Dispatch<
-    React.SetStateAction<IFavourites[] | undefined>
-  >;
-}): JSX.Element {
+export default function DeleteButton(props: DeleteButtonProps): JSX.Element {
   const handleDeletePhoto = () => {
     if (props.user && props.image) {
-      console.log(props.user.id, props.image.photo_id);
       axios
         .delete(
           baseUrl + `/favourites/${props.user.id}/${props.image.photo_id}`

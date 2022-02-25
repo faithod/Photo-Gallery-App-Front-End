@@ -23,7 +23,6 @@ export const filterGallery = (
     }
     return false;
   }
-
   for (const photo of photos) {
     //if search term is incuded in the alt text of image
     if (photo.alt.toLowerCase().includes(search.toLowerCase())) {

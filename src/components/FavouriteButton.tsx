@@ -1,21 +1,13 @@
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
+import { IconButton, Tooltip } from "@mui/material";
 import axios from "axios";
-import { IFavourites } from "../interfaces/IFavourites";
-import { IGallery } from "../interfaces/IGallery";
-import { IUser } from "../interfaces/IUser";
+import { FavouriteButtonProps } from "../interfaces/FavouriteButtonProps";
 import { baseUrl } from "../utils/baseUrl";
 import fetchData from "../utils/fetchData";
 
-export default function FavouriteButton(props: {
-  setIsHovering: React.Dispatch<React.SetStateAction<boolean>>;
-  user: IUser | undefined;
-  image: IGallery | IFavourites;
-  setFavourites: React.Dispatch<
-    React.SetStateAction<IFavourites[] | undefined>
-  >;
-}): JSX.Element {
+export default function FavouriteButton(
+  props: FavouriteButtonProps
+): JSX.Element {
   const handleAddToFavourites = () => {
     if (props.user) {
       axios
