@@ -1,14 +1,11 @@
+import * as React from "react";
 import { useState } from "react";
 import IUserGallery from "../interfaces/IUserGallery";
+import { ProfileProps } from "../interfaces/ProfileProps";
 import MyFavourites from "./MyFavourites";
 import MyGallery from "./MyGallery";
-import * as React from "react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
-import Fab from "@mui/material/Fab";
+import { Tabs, Tab, Box, Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { ProfileProps } from "../interfaces/ProfileProps";
 
 export default function Profile(props: ProfileProps): JSX.Element {
   const [userGallery, setUserGallery] = useState<IUserGallery>();

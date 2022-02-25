@@ -1,6 +1,5 @@
 import DeleteIcon from "@mui/icons-material/Delete";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
+import { IconButton, Tooltip } from "@mui/material";
 import axios from "axios";
 import { DeleteButtonProps } from "../interfaces/DeleteButtonProps";
 import { baseUrl } from "../utils/baseUrl";

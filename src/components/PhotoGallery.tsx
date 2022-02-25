@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { IGallery } from "../interfaces/IGallery";
-import fetchPhotos from "../utils/fetchPhotos";
 import MasonryImageList from "./MasonryImageList";
 import Search from "./Search";
-import { filterGallery } from "../utils/filterGallery";
+import { IGallery } from "../interfaces/IGallery";
 import { PhotoGalleryProps } from "../interfaces/PhotoGalleryProps";
+import fetchPhotos from "../utils/fetchPhotos";
+import { filterGallery } from "../utils/filterGallery";
 
 export default function PhotoGallery(props: PhotoGalleryProps): JSX.Element {
   const [search, setSearch] = useState("");

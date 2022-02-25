@@ -1,8 +1,4 @@
-import * as React from "react";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import { InputLabel, MenuItem, FormControl, Select } from "@mui/material";
 import AccountMenu from "./AccountMenu";
 import { IUser } from "../interfaces/IUser";
 import { LoginProps } from "../interfaces/LoginProps";
@@ -11,7 +7,6 @@ export default function Login(props: LoginProps): JSX.Element {
   const getUserById = (usersArr: IUser[] | undefined, id: number) => {
     return usersArr?.filter((user) => user.id === id)[0];
   };
-  console.log(props.user);
 
   return (
     <>
