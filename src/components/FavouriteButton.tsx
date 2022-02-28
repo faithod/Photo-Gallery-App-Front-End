@@ -17,7 +17,7 @@ export default function FavouriteButton(
           url: props.image.url,
         })
         .then(() => {
-          fetchData("/favourites", props.setFavourites);
+          fetchData(`/favourites/${props.user?.id}`, props.setFavourites);
         });
     }
   };
