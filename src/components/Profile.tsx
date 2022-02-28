@@ -4,8 +4,7 @@ import IUserGallery from "../interfaces/IUserGallery";
 import { ProfileProps } from "../interfaces/ProfileProps";
 import MyFavourites from "./MyFavourites";
 import MyGallery from "./MyGallery";
-import { Tabs, Tab, Box, Fab } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
+import { Tabs, Tab, Box } from "@mui/material";
 
 export default function Profile(props: ProfileProps): JSX.Element {
   const [userGallery, setUserGallery] = useState<IUserGallery>();
@@ -41,13 +40,7 @@ export default function Profile(props: ProfileProps): JSX.Element {
           user={props.user}
         />
       ) : (
-        <>
-          <MyGallery userGallery={userGallery} user={props.user} />
-          <br />
-          <Fab color="primary" aria-label="add">
-            <AddIcon />
-          </Fab>
-        </>
+        <MyGallery userGallery={userGallery} user={props.user} />
       )}
     </>
   );
